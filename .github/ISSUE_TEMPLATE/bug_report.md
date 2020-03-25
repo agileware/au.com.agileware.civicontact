@@ -8,15 +8,15 @@ assignees: ''
 ---
 
 **Before you report a bug, please check the following requirements first**
-- Did you read the [CiviContact API README](https://github.com/agileware/au.com.agileware.civicontactapi/blob/master/README.md)?
-- Is the CiviCRM site accessible on the public Internet and is not password-protected (Intranet or private website)?
-- Is CiviCRM SSL enabled?
-- Has the CiviCRM Base URL been set on the CiviCRM site?
-- Have the CiviCRM Resource URLs been set correctly?
-- Have the CiviCRM Upload Directories been set correctly?
-- Has the latest version of CiviContact API extension been installed?
-- Has this been tested using the latest version of CiviContact app?
-- Has this been tested on a production CiviCRM site?
+- Did you read the [CiviContact API README](https://github.com/agileware/au.com.agileware.civicontactapi/blob/master/README.md)? Yes / No
+- Is the CiviCRM site accessible on the public Internet and is not password-protected (Intranet or private website)? Yes / No
+- Is CiviCRM SSL enabled? Yes / No
+- Has the CiviCRM Base URL been set on the CiviCRM site? Yes / No
+- Have the CiviCRM Resource URLs been set correctly? Yes / No
+- Have the CiviCRM Upload Directories been set correctly? Yes / No
+- Has the latest version of CiviContact API extension been installed? Yes / No
+- Has this been tested using the latest version of CiviContact app? Yes / No
+- Has this been tested on a production CiviCRM site? Yes / No
 
 **If you answered "No" to any of the above, then please do not report a bug. Fix the item first and re-test.**
 
