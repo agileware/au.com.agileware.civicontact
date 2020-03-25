@@ -1,0 +1,34 @@
+<ion-header>
+    <actionbar></actionbar>
+</ion-header>
+
+<ion-content>
+    <ion-label class="notFoundLabel" *ngIf="callhistories.length == 0">
+        Call history not found
+    </ion-label>
+    <ion-card (click)="openContactPage(history)" *ngFor="let history of callhistories">
+        <ion-card-content class="card-history-content">
+
+            <div class="card-history-left">
+                <ion-avatar item-start>
+                    <img src="{{ history.contact.imageurl }}" *ngIf="history.contact.imageurl != ''; else charAvatar">
+                    <ng-template #charAvatar>
+                        <label
+                            class="char-avatar {{ history.contact.colorclass }}">{{ history.contact.firstname | uppercase | slice:0:1 }}</label>
+                    </ng-template>
+                </ion-avatar>
+            </div>
+
+            <div class="card-history-mid">
+                <h2>{{ history.contact.firstname }} {{ history.contact.lastname }}</h2>
+                <p>
+                    {{ history.activitydatetime|timeAgo }}
+                </p>
+            </div>
+
+            <div class="card-history-right">
+                <ion-icon name="call" (click)="$event.stopPropagation(); callContact(history)"></ion-icon>
+            </div>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

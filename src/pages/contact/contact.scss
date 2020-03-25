@@ -1,0 +1,72 @@
+page-contact {
+
+  ion-content ion-toolbar .toolbar-background {
+    background-color: transparent;
+
+  }
+
+  ion-buttons .bar-button {
+    color: #ffffff;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.8);
+    margin: $grid-padding-width;
+  }
+
+  .name {
+    margin-top: auto;
+    position: absolute;
+    bottom: 10px;
+    color: #ffffff;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.8);
+    padding-left: 1em;
+    z-index: 1;
+  }
+
+  .contact-char {
+    position: absolute;
+    z-index: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 94px;
+    width: 100%;
+    padding-top: 60px;
+  }
+
+  .image-tile {
+    position: relative;
+    height: 250px;
+    display: block;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .contact-image {
+    position:absolute;
+    z-index:0;
+    height:250px;
+    margin: auto;
+  }
+
+  @each $colorkey, $color in $colorlist {
+    .image-tile.#{$colorkey} {
+      background-color: #{$color};
+    }
+  }
+
+  .mail {
+    border-bottom: 1px solid #dedede;
+  }
+
+  .profilefields {
+    padding-top: 10px;
+  }
+
+  ion-list-header {
+    border-bottom: 1px solid #dedede;
+  }
+
+  .card ion-item-group.phone .item-block:last-child .item-inner {
+    border-bottom: 1px solid #dedede;
+  }
+
+}

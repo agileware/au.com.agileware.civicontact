@@ -1,0 +1,34 @@
+ion-item.item-block.directory-ion-item {
+  padding-left: 40px;
+}
+
+page-directory {
+  ion-item {
+    p {
+      padding-top: 15px;
+    }
+
+    span {
+      text-transform: uppercase;
+      padding-right: 15px;
+
+    }
+  }
+
+  ion-item-group.searching {
+    .item-block {
+      align-items: unset;
+      -webkit-align-items: unset;
+    }
+
+    ion-item.item-block.directory-ion-item {
+      padding-left: 16px;
+    }
+
+  }
+
+  .ion-add-contact-fab {
+    right: 20px;
+    bottom: 20px;
+  }
+}

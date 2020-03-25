@@ -1,0 +1,63 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+@import "../../node_modules/ionic2-auto-complete/auto-complete";
+
+$default_contact_color: #FB8C00;
+
+$colorlist: (
+        "red": #D32F2F,
+        "pink": #C2185B,
+        "purple": #7B1FA2,
+        "deep-purple": #512DA8,
+        "indigo": #303F9F,
+        "blue": #1976D2,
+        "cyan": #0097A7,
+        "teal": #00796B,
+        "deep-orange": #E64A19,
+        "brown": #5D4037,
+        "grey": #616161,
+        "blue-grey": #455A64,
+);
+
+.char-avatar {
+  text-align: center;
+  display: block;
+  background: $default_contact_color;
+  height: 40px;
+  border-radius: 100%;
+  color: #fff;
+  padding-top: 10px;
+}
+
+.transparent-body {
+  background: none transparent !important;
+  opacity: 0 !important;
+}
+
+@each $colorkey, $color in $colorlist {
+  .char-avatar.#{$colorkey} {
+    background: #{$color};
+  }
+}
+
+ion-label.notFoundLabel {
+  color: #999;
+  text-align: center;
+}
+
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  border-bottom: 1px solid #dedede !important;
+  box-shadow: none !important;
+}

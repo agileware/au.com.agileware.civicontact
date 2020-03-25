@@ -1,0 +1,36 @@
+<!--
+  Generated template for the GroupContactsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{ pagetitle }}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-item-group *ngFor="let key of directorykeys" [ngClass]="(isSearching)?'searching':''">
+        <ion-item-divider color="light">{{ key }}</ion-item-divider>
+        <ion-item (click)="openContact(contact)" class="directory-ion-item"
+            *ngFor="let contact of directoryvalues[key]">
+            <ion-avatar item-start>
+                <img src="{{ contact.imageurl }}" *ngIf="contact.imageurl != ''; else charAvatar">
+                <ng-template #charAvatar>
+                    <label class="char-avatar {{ contact.colorclass }}">{{ key }}</label>
+                </ng-template>
+            </ion-avatar>
+            <h2>{{ contact.firstname }} {{ contact.lastname }}</h2>
+            <div *ngIf="isSearching">
+                <p *ngFor="let phone of contact.phones">
+                    <span>{{ phone.type.displayname }}</span>
+                    {{ phone.phone }}
+                </p>
+            </div>
+        </ion-item>
+    </ion-item-group>
+</ion-content>

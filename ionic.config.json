@@ -1,0 +1,7 @@
+{
+  "name": "civicontact",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

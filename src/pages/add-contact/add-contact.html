@@ -1,0 +1,208 @@
+<!--
+  Generated template for the AddContactPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{ pagetitle }}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only [disabled]="!addContactFormGroup.valid" (click)="submitAddContactForm();">
+                <ion-icon name="checkmark"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form [formGroup]="addContactFormGroup" (ngSubmit)="submitAddContactForm()">
+
+        <ion-item>
+            <button class="ion-label-icon" ion-button clear item-start>
+                <ion-icon name="person"></ion-icon>
+            </button>
+
+            <ion-input formControlName="firstname" value="{{ contact.firstname }}" placeholder="Firstname" type="text">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <button class="ion-label-icon" ion-button clear item-start>
+
+            </button>
+            <ion-input formControlName="lastname" value="{{ contact.lastname }}" placeholder="Lastname" type="text">
+            </ion-input>
+        </ion-item>
+
+        <div formArrayName="phones">
+            <div *ngFor="let phone of addContactFormGroup.controls.phones.controls; let i = index;">
+                <div class="form-group" formGroupName="{{i}}">
+                    <ion-item>
+                        <button class="ion-label-icon" ion-button clear item-start>
+                            <ion-icon name="call"></ion-icon>
+                        </button>
+
+                        <ion-input formControlName="number" value="{{ getPhoneProperty(i, 'number') }}" type="text">
+                        </ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <button class="ion-label-icon" ion-button clear item-start>
+
+                        </button>
+                        <ion-label floating class="ion-label-hide">Phone type</ion-label>
+                        <ion-select formControlName="type" placeholder="Phone type">
+                            <ion-option *ngFor="let locationtype of locationtypes" [selected]="type == locationtype.id"
+                                value="{{ locationtype.id }}">{{ locationtype.displayname }}</ion-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-input formControlName="liveid" value="{{ getPhoneProperty(i, 'liveid') }}" type="hidden">
+                    </ion-input>
+                </div>
+            </div>
+        </div>
+
+        <div formArrayName="emails">
+            <div *ngFor="let email of addContactFormGroup.controls.emails.controls; let i = index;">
+                <div class="form-group" formGroupName="{{i}}">
+                    <ion-item>
+                        <button class="ion-label-icon" ion-button clear item-start>
+                            <ion-icon name="mail"></ion-icon>
+                        </button>
+
+                        <ion-input formControlName="emailid" value="{{ getEmailProperty(i, 'emailid') }}" type="text">
+                        </ion-input>
+
+                    </ion-item>
+
+                    <ion-item>
+                        <button class="ion-label-icon" ion-button clear item-start>
+
+                        </button>
+
+                        <ion-label floating class="ion-label-hide">Email type</ion-label>
+                        <ion-select formControlName="type" placeholder="Email type">
+                            <ion-option *ngFor="let locationtype of locationtypes" [selected]="type == locationtype.id"
+                                value="{{ locationtype.id }}">{{ locationtype.displayname }}</ion-option>
+                        </ion-select>
+                    </ion-item>
+
+                    <ion-input formControlName="liveid" value="{{ getEmailProperty(i, 'liveid') }}" type="hidden">
+                    </ion-input>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div *ngIf="profilefields.length >= 0">
+        <div *ngFor="let profilefield of profilefields">
+            <ion-item
+                *ngIf="(profilefield.html_type == 'Text' || profilefield.html_type == 'Link' || ((profilefield.html_type === undefined || profilefield.html_type == '') && (profilefield.bao === undefined || profilefield.bao == '' || profilefield.bao == null || profilefield.bao == 'null')))">
+                <ion-label stacked="">{{ profilefield.title }}</ion-label>
+                <ion-input [(ngModel)]="profilefieldvalues[profilefield.name]"
+                    type="{{ profilefield.data_type == 'Int' ? 'number' : 'text' }}"></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="profilefield.html_type == 'Select'">
+                <ion-label>{{ profilefield.title }}</ion-label>
+                <select-searchable item-content [(ngModel)]="profilefieldvalues[profilefield.name]"
+                    [items]="profilefield.selectionvalues" itemValueField="key" itemTextField="val" [canSearch]="true">
+                </select-searchable>
+            </ion-item>
+
+            <ion-item *ngIf="profilefield.html_type == 'Select Date'">
+                <ion-label>{{ profilefield.title }}</ion-label>
+                <ion-datetime [(ngModel)]="profilefieldvalues[profilefield.name]"
+                    displayFormat="{{ profilefield.date_format|uppercase }}"
+                    *ngIf="profilefield.html_type == 'Select Date'"></ion-datetime>
+            </ion-item>
+
+
+            <ion-item *ngIf="profilefield.html_type == 'CheckBox' || profilefield.html_type == 'Radio'">
+                <ion-label>{{ profilefield.title }}</ion-label>
+            </ion-item>
+
+            <ion-list *ngIf="profilefield.html_type == 'CheckBox'">
+                <ion-item *ngFor="let selectionvalue of profilefield.selectionvalues">
+                    <ion-label>{{ selectionvalue.val }}</ion-label>
+                    <ion-checkbox [(ngModel)]="profilefieldvalues[profilefield.name][selectionvalue.key]">
+                        {{ selectionvalue.key }}</ion-checkbox>
+                </ion-item>
+            </ion-list>
+
+            <!-- <ion-auto-complete [(ngModel)]="profilefieldvalues[profilefield.name]" (autoFocus)="updateCurrentFocusedAutoCompleteItems(profilefield.selectionvalues)" [dataProvider]="addContactProfileAutoCompleteFieldsService" *ngIf="profilefield.html_type == 'Autocomplete-Select'"></ion-auto-complete> -->
+
+            <ion-list radio-group [(ngModel)]="profilefieldvalues[profilefield.name]"
+                *ngIf="profilefield.html_type == 'Radio'">
+                <ion-item *ngFor="let selectionvalue of profilefield.selectionvalues">
+                    <ion-label>{{ selectionvalue.val }}</ion-label>
+                    <ion-radio value="{{ selectionvalue.key }}"></ion-radio>
+                </ion-item>
+            </ion-list>
+
+            <ion-item *ngIf="profilefield.html_type == 'Multi-Select'">
+                <ion-label>{{ profilefield.title }}</ion-label>
+                <select-searchable [(ngModel)]="profilefieldvalues[profilefield.name]" [isMultiple]="true" item-content
+                    [items]="profilefield.selectionvalues" itemValueField="key" itemTextField="val" [canSearch]="true">
+                </select-searchable>
+            </ion-item>
+
+            <ion-item *ngIf="profilefield.html_type == 'TextArea'">
+                <ion-label stacked>{{ profilefield.title }}</ion-label>
+                <ion-textarea [(ngModel)]="profilefieldvalues[profilefield.name]"
+                    placeholder="{{ profilefield.title }}"></ion-textarea>
+            </ion-item>
+
+            <ion-item *ngIf="profilefield.bao == 'CRM_Core_BAO_Country'">
+                <ion-label>{{ profilefield.title }}</ion-label>
+                <select-searchable [(ngModel)]="profilefieldvalues[profilefield.name]" item-content
+                    (onChange)="setCountrySelected($event)" [items]="countries" itemValueField="id" itemTextField="name"
+                    [canSearch]="true"></select-searchable>
+            </ion-item>
+
+            <ion-item *ngIf="profilefield.html_type == 'Select Country'">
+                <ion-label>{{ profilefield.title }}</ion-label>
+                <select-searchable [(ngModel)]="profilefieldvalues[profilefield.name]" item-content
+                    (onChange)="setCustomCountrySelected($event)" [items]="countries" itemValueField="id"
+                    itemTextField="name" [canSearch]="true"></select-searchable>
+            </ion-item>
+
+            <ion-item *ngIf="profilefield.html_type == 'Multi-Select Country'">
+                <ion-label>{{ profilefield.title }}</ion-label>
+                <select-searchable [(ngModel)]="profilefieldvalues[profilefield.name]" [isMultiple]="true" item-content
+                    [items]="countries" itemValueField="id" itemTextField="name" [canSearch]="true"></select-searchable>
+            </ion-item>
+
+            <ion-item *ngIf="profilefield.bao == 'CRM_Core_DAO_StateProvince'">
+                <ion-label>{{ profilefield.title }}</ion-label>
+                <select-searchable [(ngModel)]="profilefieldvalues[profilefield.name]"
+                    (onChange)="setStateSelected($event)" item-content [items]="statestodisplay" itemValueField="id"
+                    itemTextField="name" [canSearch]="true"></select-searchable>
+            </ion-item>
+
+            <ion-item *ngIf="profilefield.html_type == 'Multi-Select State/Province'">
+                <ion-label>{{ profilefield.title }}</ion-label>
+                <select-searchable [(ngModel)]="profilefieldvalues[profilefield.name]" [isMultiple]="true" item-content
+                    [items]="allstates" itemValueField="id" itemTextField="name" [canSearch]="true"></select-searchable>
+            </ion-item>
+
+            <ion-item *ngIf="profilefield.html_type == 'Select State/Province'">
+                <ion-label>{{ profilefield.title }}</ion-label>
+                <select-searchable [(ngModel)]="profilefieldvalues[profilefield.name]" item-content
+                    [items]="customstatestodisplay" itemValueField="id" itemTextField="name" [canSearch]="true">
+                </select-searchable>
+            </ion-item>
+
+            <ion-item *ngIf="profilefield.bao == 'CRM_Core_DAO_County'">
+                <ion-label>{{ profilefield.title }}</ion-label>
+                <select-searchable [(ngModel)]="profilefieldvalues[profilefield.name]" item-content
+                    [items]="countiestodisplay" itemValueField="id" itemTextField="name" [canSearch]="true">
+                </select-searchable>
+            </ion-item>
+        </div>
+    </div>
+</ion-content>

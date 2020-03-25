@@ -1,0 +1,11 @@
+<ion-navbar>
+    <ion-buttons left>
+        <button ion-button icon-only (click)="openMoreMenu($event)">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-buttons>
+
+
+    <ion-searchbar placeholder="{{ placeholder }}" (ionInput)="onInput($event)" [(ngModel)]="searchInput">
+    </ion-searchbar>
+</ion-navbar>

@@ -1,0 +1,39 @@
+.card-history-left {
+  width: 40px;
+  float: left;
+}
+
+.card-history-right {
+  width: 40px;
+  float: left;
+  text-align: right;
+  font-size: 20px;
+  color: #666;
+  padding-top: 5px;
+}
+
+.card-history-mid {
+  width: calc(100% - 90px);
+  float: left;
+  padding-left: 15px;
+}
+
+.card-history-left .char-avatar {
+  height: 38px;
+  font-size: 16px;
+}
+
+.card-history-content {
+  float: left;
+  width: 100%;
+}
+
+.card-history-mid p {
+  color: #999;
+  font-size: 12px;
+}
+
+.card-history-left img {
+  height: 40px;
+  border-radius: 50%;
+}

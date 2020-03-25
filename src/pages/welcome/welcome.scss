@@ -1,0 +1,27 @@
+page-welcome {
+  .welcome {
+    background-image: url('../assets/imgs/SP6-notext.jpg');
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  h1 {
+    text-align: center;
+    width: 100%;
+    font-size: 50px;
+  }
+
+  button {
+    position: absolute !important;
+    bottom: -4px;
+    left: 0;
+  }
+
+  ion-spinner {
+    position: absolute;
+    bottom: 11px;
+    left: 50%;
+    margin-left: -15px;
+  }
+}

@@ -1,0 +1,10 @@
+page-settings {
+  ion-list ion-item ion-label {
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+
+  .logout-item {
+    color: map-get($colors, danger);
+  }
+}

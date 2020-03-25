@@ -1,0 +1,50 @@
+<!--
+  Generated template for the NewActivityPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{ contact.firstname }} {{ contact.lastname }} - New Activity</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding-right="15px">
+    <form [formGroup]="addActivityFormGroup" (ngSubmit)="submitAddActivityForm()">
+
+        <ion-item>
+            <ion-label stacked>Type</ion-label>
+            <ion-select formControlName="activitytype" [(ngModel)]="activity.activitytypeid">
+                <ion-option *ngFor="let activitytype of activityTypes" value="{{ activitytype.value }}">
+                    {{ activitytype.label }}
+                </ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Date</ion-label>
+            <ion-datetime formControlName="activitydate" [displayFormat]="datetimeFormat"
+                [(ngModel)]="activity.activitydatetime"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Subject</ion-label>
+            <ion-input formControlName="activitysubject" [(ngModel)]="activity.subject" placeholder="Activity subject"
+                type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Details</ion-label>
+            <ion-textarea formControlName="activitycomments" [(ngModel)]="activity.details" placeholder="Details">
+            </ion-textarea>
+        </ion-item>
+
+        <button full ion-button [disabled]="!addActivityFormGroup.valid">
+            Add Activity
+        </button>
+    </form>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+    <actionbar></actionbar>
+</ion-header>
+
+<ion-content>
+    <ion-label class="notFoundLabel" *ngIf="favourites.length == 0">
+        Favourites not found
+    </ion-label>
+    <ion-grid class="ion-favourite-grid">
+        <ion-row>
+            <ion-col (click)="callContactTileAction(favourite)" class="ion-favourite-col"
+                [ngClass]="{ odd: odd, even: even }" col-6
+                *ngFor="let favourite of favourites; let odd=odd; let even=even">
+                <ion-card class="ion-favourite-card">
+
+                    <ion-card-header>
+
+                        <img class="favourite-img" src={{favourite.contact.imageurl}}
+                            *ngIf="favourite.contact.imageurl != ''; else charBackground">
+
+                        <ng-template #charBackground>
+                            <div class="favourite-char">
+                                <label
+                                    class="ion-favourite-char-bg">{{ favourite.contact.firstname | uppercase | slice:0:1 }}</label>
+                            </div>
+                        </ng-template>
+                    </ion-card-header>
+
+                    <ion-card-content class="favourite-card-content"
+                        (click)="$event.stopPropagation(); openContact(favourite)">
+                        <b>{{ favourite.contact.firstname }} {{ favourite.contact.lastname }}</b>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

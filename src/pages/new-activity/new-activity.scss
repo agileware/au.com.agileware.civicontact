@@ -1,0 +1,26 @@
+page-new-activity {
+  ion-item {
+    margin-bottom: 15px !important;
+  }
+
+  ion-item button ion-icon {
+    font-size: 32px;
+  }
+
+  .ion-label-icon {
+    color: #999;
+  }
+
+  .ion-label-hide {
+    display: none;
+  }
+
+  button {
+    max-width: calc(100% - 15px);
+    margin-left: 15px !important;
+  }
+
+  ion-content {
+    padding-right: 15px !important;
+  }
+}

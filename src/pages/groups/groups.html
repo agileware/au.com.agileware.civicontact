@@ -1,0 +1,25 @@
+<!--
+  Generated template for the GroupsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <actionbar></actionbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-label class="notFoundLabel" *ngIf="groups.length == 0">
+        Groups not found
+    </ion-label>
+    <ion-list>
+        <ion-item (click)="openGroupContacts(group)" *ngFor="let group of groups">
+            <h2>{{ group.name }}</h2>
+            <p>
+                <ion-spinner name="ios-small" *ngIf="group.contacts == -1"></ion-spinner>
+                <span>{{ group.contacts >= 0 ? group.contacts : '' }} Contacts</span>
+            </p>
+        </ion-item>
+    </ion-list>
+</ion-content>

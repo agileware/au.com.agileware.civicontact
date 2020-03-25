@@ -1,0 +1,40 @@
+<ion-header>
+    <actionbar></actionbar>
+</ion-header>
+
+<ion-content>
+    <ion-label class="notFoundLabel" *ngIf="directorykeys.length == 0">
+        Contacts not found
+    </ion-label>
+
+    <ion-item-group *ngFor="let key of directorykeys" [ngClass]="(isSearching)?'searching':''">
+        <ion-item-divider color="light">{{ key }}</ion-item-divider>
+        <ion-item (click)="openContact(contact)" class="directory-ion-item"
+            *ngFor="let contact of directoryvalues[key]">
+            <ion-avatar item-start>
+                <img src="{{ contact.imageurl }}" *ngIf="contact.imageurl != ''; else charAvatar">
+                <ng-template #charAvatar>
+                    <label class="char-avatar {{ contact.colorclass }}">{{ key }}</label>
+                </ng-template>
+            </ion-avatar>
+            <h2>{{ contact.firstname }} {{ contact.lastname }}</h2>
+            <div *ngIf="isSearching">
+                <p *ngFor="let phone of contact.phones">
+                    <span>{{ phone.type.displayname }}</span>
+                    {{ phone.phone }}
+                </p>
+            </div>
+        </ion-item>
+    </ion-item-group>
+
+    <ion-infinite-scroll *ngIf="!isSearching" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+    <ion-fab bottom right class="ion-add-contact-fab">
+        <button (click)="openAddContactPage()" ion-fab color="primary">
+            <ion-icon name="add"></ion-icon>
+        </button>
+    </ion-fab>
+
+</ion-content>

@@ -1,0 +1,46 @@
+page-add-contact {
+  ion-item button {
+    width: 45px;
+  }
+
+  ion-item {
+    margin-bottom: 15px !important;
+    padding-left: 0 !important;
+  }
+
+  ion-item button ion-icon {
+    font-size: 32px;
+  }
+
+  .ion-label-icon {
+    color: #999;
+  }
+
+  .ion-label-hide {
+    display: none;
+  }
+
+  ion-select {
+    padding-left: 10px !important;
+  }
+
+  .image-tile {
+    position: relative;
+    height: 250px;
+    display: block;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  @each $colorkey, $color in $colorlist {
+    .image-tile.#{$colorkey} {
+      background-color: #{$color};
+    }
+  }
+
+  ion-content ion-toolbar .toolbar-background {
+    background-color: transparent;
+
+  }
+}
