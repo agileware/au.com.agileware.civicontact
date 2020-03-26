@@ -2,7 +2,7 @@
 name: Bug report
 about: Create a report to help us improve
 title: When I do A, the app responds with B but I expect it respond with C
-labels: ''
+labels: 'bug'
 assignees: ''
 
 ---
@@ -17,6 +17,7 @@ assignees: ''
 - Has the latest version of CiviContact API extension been installed? Yes / No
 - Has this been tested using the latest version of CiviContact app? Yes / No
 - Has this been tested on a production CiviCRM site? Yes / No
+- Did you clear the CiviCRM cache, re-build the CiviCRM menu and then re-test? Yes / No
 
 **If you answered "No" to any of the above, then please do not report a bug. Fix the item first and re-test.**
 
