@@ -50,7 +50,7 @@ export class GroupsProvider {
           } else {
             resolve({
               "status": false,
-              "message": data["error_message"] + " occured while fetching groups.",
+              "message": data["error_message"] + " occurred while fetching groups.",
             });
           }
         }, (error) => {

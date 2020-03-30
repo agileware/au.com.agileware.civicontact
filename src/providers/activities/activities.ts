@@ -61,7 +61,7 @@ export class ActivitiesProvider {
             resolve({
               "activities": [],
               "status": false,
-              "message": data["error_message"] + " occured while fetching activities.",
+              "message": data["error_message"] + " occurred while fetching activities.",
             });
           }
         }, error => {

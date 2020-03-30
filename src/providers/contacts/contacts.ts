@@ -92,7 +92,7 @@ export class ContactsProvider {
             resolve({
               "contacts": [],
               "status": false,
-              "message": data["error_message"] + " occured while fetching contacts."
+              "message": data["error_message"] + " occurred while fetching contacts."
             });
           }
         }, error => {

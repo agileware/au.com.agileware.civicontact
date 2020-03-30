@@ -46,7 +46,7 @@ export class ActivityTypesProvider {
               resolve({
                 "activitytypes": this.activitytypes,
                 "status": true,
-                "message": data["error_message"] + " occured while fetching activitytypes.",
+                "message": data["error_message"] + " occurred while fetching activitytypes.",
               });
             });
 
@@ -54,7 +54,7 @@ export class ActivityTypesProvider {
             resolve({
               "activitytypes": [],
               "status": false,
-              "message": data["error_message"] + " occured while fetching activitytypes.",
+              "message": data["error_message"] + " occurred while fetching activitytypes.",
             });
           }
         }, error => {

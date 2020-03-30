@@ -76,7 +76,7 @@ export class SettingsProvider {
           } else {
             resolve({
               "status": false,
-              "message": data["error_message"] + " occured while fetching settings.",
+              "message": data["error_message"] + " occurred while fetching settings.",
             });
           }
         });

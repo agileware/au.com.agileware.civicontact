@@ -61,7 +61,7 @@ export class FavouritesProvider {
               "favourites": [],
               "timestamp": "",
               "status": false,
-              "message": data["error_message"] + " occured while fetching favourites.",
+              "message": data["error_message"] + " occurred while fetching favourites.",
             });
           }
         }, error => {

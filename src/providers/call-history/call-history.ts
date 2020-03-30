@@ -60,7 +60,7 @@ export class CallHistoryProvider {
           } else {
             resolve({
               "status": false,
-              "message": data["error_message"] + " occured while fetching call histories.",
+              "message": data["error_message"] + " occurred while fetching call histories.",
             });
           }
         });

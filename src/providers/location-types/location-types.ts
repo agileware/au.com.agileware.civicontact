@@ -53,7 +53,7 @@ export class LocationTypesProvider {
           } else {
             resolve({
               "status": false,
-              "message": data["error_message"] + " occured while fetching location types.",
+              "message": data["error_message"] + " occurred while fetching location types.",
               "raw_message": data["error_message"]
             });
           }
