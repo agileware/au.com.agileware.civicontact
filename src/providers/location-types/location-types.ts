@@ -61,7 +61,7 @@ export class LocationTypesProvider {
           console.log(JSON.stringify(error));
           resolve({
             "status": false,
-            "message": "Some error occured while fetching location types.",
+            "message": "An error occurred while fetching location types.",
           });
         });
     });

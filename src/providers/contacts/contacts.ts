@@ -100,7 +100,7 @@ export class ContactsProvider {
           resolve({
             "contacts": [],
             "status": false,
-            "message": "Some error occured while fetching contacts."
+            "message": "An error occurred while fetching contacts."
           });
         });
     });

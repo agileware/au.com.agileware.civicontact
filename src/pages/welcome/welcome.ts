@@ -201,7 +201,7 @@ export class WelcomePage {
                 this.showScanButton = true;
                 this.loadingProvider.dismissAlert();
                 this.databaseProvider.deleteAccount(accountdata['result']['insertId']).then(deleteResult => {
-                  this.utilsProvider.showAlert("Application setup", "Some error occured while creating database, Please try again.");
+                  this.utilsProvider.showAlert("Application setup", "An error occurred while creating database, Please try again.");
                   this.showScanButton = true;
                 });
               } else {
@@ -264,7 +264,7 @@ export class WelcomePage {
   showApplicationSetupError() {
     this.showScanButton = true;
     this.loadingProvider.dismissAlert();
-    this.utilsProvider.showAlert("Application setup", "Some error occured while setting up your application, Please try again.");
+    this.utilsProvider.showAlert("Application setup", "An error occurred while setting up your application, Please try again.");
   }
 
   modifyEndPoint(data) {

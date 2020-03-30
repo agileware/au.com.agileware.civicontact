@@ -69,7 +69,7 @@ export class ActivitiesProvider {
           resolve({
             "activities": [],
             "status": false,
-            "message": "Some error occured while fetching activities.",
+            "message": "An error occurred while fetching activities.",
           });
         });
     });

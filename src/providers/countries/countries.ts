@@ -67,7 +67,7 @@ export class CountriesProvider {
     resolve({
       "countries": [],
       "status": false,
-      "message": "Some error occured while fetching countries.",
+      "message": "An error occurred while fetching countries.",
     });
   }
 

@@ -67,7 +67,7 @@ export class ProfileFieldsProvider {
     resolve({
       "profilefields": [],
       "status": false,
-      "message": "Some error occured while fetching profile fields.",
+      "message": "An error occurred while fetching profile fields.",
     });
   }
 

@@ -70,7 +70,7 @@ export class FavouritesProvider {
             "favourites": [],
             "timestamp": "",
             "status": false,
-            "message": "Some error occured while fetching favourites.",
+            "message": "An error occurred while fetching favourites.",
           });
         });
     });

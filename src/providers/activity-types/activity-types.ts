@@ -62,7 +62,7 @@ export class ActivityTypesProvider {
           resolve({
             "activitytypes": [],
             "status": false,
-            "message": "Some error occured while fetching activitytypes.",
+            "message": "An error occurred while fetching activitytypes.",
           });
         });
     });
