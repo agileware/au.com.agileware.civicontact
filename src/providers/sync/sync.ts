@@ -364,7 +364,7 @@ export class SyncProvider {
             });
           });
         } else {
-          this.utilsProvider.showAlert("Log Out", "Error occurred while deleting the account, Please try again.")
+          this.utilsProvider.showAlert("Log Out", "Error occurred while deleting the account, please try again.")
         }
       });
     });
