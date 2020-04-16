@@ -59,8 +59,8 @@ Perform these steps to set up your development environment:
 4. Install all dependencies, `npm install` 
 5. Install Ionic CLI, `npm install ionic@5 --save`
 6. Install Cordova, `npm install cordova@9 --save`
-7. Build the app for Android, `npm ionic cordova build android`
-8. Build the app for iOS, `npm ionic cordova build ios`
+7. Build the app for Android, `ionic cordova build android`
+8. Build the app for iOS, `ionic cordova build ios`
 9. The location of the compiled files will be output in the console.
 
 ## How to test CiviContact
